@@ -1,6 +1,6 @@
 # DerivCheck
 
-[![tests](https://github.com/levsan13/derivcheck/actions/workflows/ci.yml/badge.svg)](https://github.com/levsan13/derivcheck/actions/workflows/ci.yml)
+[![tests](https://github.com/levsan13/DerivCheck/actions/workflows/ci.yml/badge.svg)](https://github.com/levsan13/DerivCheck/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 
@@ -70,8 +70,8 @@ derivations of the same paper.
 ## Installation
 
 ```bash
-git clone https://github.com/levsan13/derivcheck.git
-cd derivcheck
+git clone https://github.com/levsan13/DerivCheck.git
+cd DerivCheck
 pip install -e ".[dev]"        # add [claude] for the Anthropic backend
 ```
 
