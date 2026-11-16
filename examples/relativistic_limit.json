@@ -1,0 +1,113 @@
+{
+  "derivcheck_version": "0.1.0",
+  "source": "examples/relativistic_limit.tex",
+  "backend": "offline",
+  "assumptions": {
+    "m": "positive",
+    "c": "positive"
+  },
+  "definitions": {
+    "E": "sqrt(c**4*m**2 + c**2*p**2)"
+  },
+  "steps": [
+    {
+      "index": 1,
+      "latex": "E = \\sqrt{p^2 c^2 + m^2 c^4}",
+      "lhs_latex": "E",
+      "rhs_latex": "\\sqrt{p^2 c^2 + m^2 c^4}",
+      "lhs": "E",
+      "rhs": "sqrt(c**4*m**2 + c**2*p**2)",
+      "relation": "given",
+      "justification": "For a free particle of mass $m$, with $m, c > 0$, the relativistic energy is",
+      "expansion": null,
+      "check": {
+        "status": "given",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 2,
+      "latex": "E = m c^2 \\sqrt{1 + \\frac{p^2}{m^2 c^2}}",
+      "lhs_latex": "E",
+      "rhs_latex": "m c^2 \\sqrt{1 + \\frac{p^2}{m^2 c^2}}",
+      "lhs": "E",
+      "rhs": "c**2*m*sqrt(1 + p**2/(c**2*m**2))",
+      "relation": "equals",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "verified",
+        "method": "symbolic",
+        "against": 1,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 3,
+      "latex": "E \\approx m c^2 + \\frac{p^2}{2m}",
+      "lhs_latex": "E",
+      "rhs_latex": "m c^2 + \\frac{p^2}{2m}",
+      "lhs": "E",
+      "rhs": "c**2*m + p**2/(2*m)",
+      "relation": "approx",
+      "justification": "Expanding the square root for small $p$, to second order in $p$, gives the rest energy plus the Newtonian kinetic energy",
+      "expansion": {
+        "variable": "p",
+        "point": "0",
+        "order": 2
+      },
+      "check": {
+        "status": "verified_to_order",
+        "method": "series in p",
+        "against": 2,
+        "detail": "the two sides agree up to order p**2; leading difference -p**4/(8*c**2*m**3)",
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    }
+  ],
+  "summary": {
+    "steps": 3,
+    "checked": 2,
+    "verified": 2,
+    "failed": 0,
+    "unparsed": 0,
+    "unverified": 0,
+    "first_failure": null,
+    "verdict": "consistent",
+    "llm_calls": 0,
+    "repairs": 0
+  },
+  "trace": [
+    {
+      "node": "segment",
+      "message": "3 steps and 2 assumptions (LaTeX rules)",
+      "step": null,
+      "seconds": 0.2691
+    },
+    {
+      "node": "formalize",
+      "message": "3/3 steps translated to SymPy",
+      "step": null,
+      "seconds": 0.0742
+    },
+    {
+      "node": "verify",
+      "message": "1 given, 1 verified, 1 verified_to_order",
+      "step": null,
+      "seconds": 0.0664
+    }
+  ]
+}

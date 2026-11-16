@@ -1,0 +1,114 @@
+{
+  "derivcheck_version": "0.1.0",
+  "source": "examples/kinetic_energy_error.tex",
+  "backend": "offline",
+  "assumptions": {
+    "hbar": "positive",
+    "m": "positive"
+  },
+  "definitions": {
+    "p": "hbar*k",
+    "E": "p**2/(2*m)"
+  },
+  "steps": [
+    {
+      "index": 1,
+      "latex": "p = \\hbar k",
+      "lhs_latex": "p",
+      "rhs_latex": "\\hbar k",
+      "lhs": "p",
+      "rhs": "hbar*k",
+      "relation": "definition",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "definition",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 2,
+      "latex": "E = \\frac{p^2}{2m}",
+      "lhs_latex": "E",
+      "rhs_latex": "\\frac{p^2}{2m}",
+      "lhs": "E",
+      "rhs": "p**2/(2*m)",
+      "relation": "given",
+      "justification": "For a free electron of mass $m$ with momentum $p = \\hbar k$ (and $\\hbar, m > 0$)",
+      "expansion": null,
+      "check": {
+        "status": "given",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 3,
+      "latex": "E = \\frac{\\hbar^2 k^2}{m}",
+      "lhs_latex": "E",
+      "rhs_latex": "\\frac{\\hbar^2 k^2}{m}",
+      "lhs": "E",
+      "rhs": "hbar**2*k**2/m",
+      "relation": "equals",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "failed",
+        "method": "numeric",
+        "against": 2,
+        "detail": "the two sides differ: 0.542753 vs 1.08551 at the counterexample",
+        "counterexample": {
+          "hbar": 1.080049,
+          "k": -0.716783,
+          "m": 0.552116
+        }
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    }
+  ],
+  "summary": {
+    "steps": 3,
+    "checked": 1,
+    "verified": 0,
+    "failed": 1,
+    "unparsed": 0,
+    "unverified": 0,
+    "first_failure": 3,
+    "verdict": "error_found",
+    "llm_calls": 0,
+    "repairs": 0
+  },
+  "trace": [
+    {
+      "node": "segment",
+      "message": "3 steps and 2 assumptions (LaTeX rules)",
+      "step": null,
+      "seconds": 0.2608
+    },
+    {
+      "node": "formalize",
+      "message": "3/3 steps translated to SymPy",
+      "step": null,
+      "seconds": 0.0538
+    },
+    {
+      "node": "verify",
+      "message": "1 definition, 1 failed, 1 given",
+      "step": null,
+      "seconds": 0.0022
+    }
+  ]
+}

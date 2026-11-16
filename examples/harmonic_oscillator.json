@@ -1,0 +1,175 @@
+{
+  "derivcheck_version": "0.1.0",
+  "source": "examples/harmonic_oscillator.tex",
+  "backend": "offline",
+  "assumptions": {
+    "k": "positive",
+    "m": "positive"
+  },
+  "definitions": {
+    "x": "A*cos(omega*t + phi)",
+    "v": "-A*omega*sin(omega*t + phi)",
+    "omega": "sqrt(k/m)",
+    "E": "k*x**2/2 + m*v**2/2"
+  },
+  "steps": [
+    {
+      "index": 1,
+      "latex": "x = A\\cos(\\omega t + \\phi)",
+      "lhs_latex": "x",
+      "rhs_latex": "A\\cos(\\omega t + \\phi)",
+      "lhs": "x",
+      "rhs": "A*cos(omega*t + phi)",
+      "relation": "definition",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "definition",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 2,
+      "latex": "v = -A\\omega\\sin(\\omega t + \\phi)",
+      "lhs_latex": "v",
+      "rhs_latex": "-A\\omega\\sin(\\omega t + \\phi)",
+      "lhs": "v",
+      "rhs": "-A*omega*sin(omega*t + phi)",
+      "relation": "definition",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "definition",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 3,
+      "latex": "\\omega = \\sqrt{k/m}",
+      "lhs_latex": "\\omega",
+      "rhs_latex": "\\sqrt{k/m}",
+      "lhs": "omega",
+      "rhs": "sqrt(k/m)",
+      "relation": "definition",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "definition",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 4,
+      "latex": "E = \\frac{1}{2} m v^2 + \\frac{1}{2} k x^2",
+      "lhs_latex": "E",
+      "rhs_latex": "\\frac{1}{2} m v^2 + \\frac{1}{2} k x^2",
+      "lhs": "E",
+      "rhs": "k*x**2/2 + m*v**2/2",
+      "relation": "given",
+      "justification": "The total energy is",
+      "expansion": null,
+      "check": {
+        "status": "given",
+        "method": null,
+        "against": null,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 5,
+      "latex": "E = \\frac{1}{2} m A^2 \\omega^2 \\sin^2(\\omega t + \\phi) + \\frac{1}{2} k A^2 \\cos^2(\\omega t + \\phi)",
+      "lhs_latex": "E",
+      "rhs_latex": "\\frac{1}{2} m A^2 \\omega^2 \\sin^2(\\omega t + \\phi) + \\frac{1}{2} k A^2 \\cos^2(\\omega t + \\phi)",
+      "lhs": "E",
+      "rhs": "A**2*k*cos(omega*t + phi)**2/2 + A**2*m*omega**2*sin(omega*t + phi)**2/2",
+      "relation": "equals",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "verified",
+        "method": "symbolic",
+        "against": 4,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    },
+    {
+      "index": 6,
+      "latex": "E = \\frac{1}{2} k A^2",
+      "lhs_latex": "E",
+      "rhs_latex": "\\frac{1}{2} k A^2",
+      "lhs": "E",
+      "rhs": "A**2*k/2",
+      "relation": "equals",
+      "justification": null,
+      "expansion": null,
+      "check": {
+        "status": "verified",
+        "method": "symbolic",
+        "against": 5,
+        "detail": null,
+        "counterexample": null
+      },
+      "attempts": 0,
+      "repaired": false,
+      "history": []
+    }
+  ],
+  "summary": {
+    "steps": 6,
+    "checked": 2,
+    "verified": 2,
+    "failed": 0,
+    "unparsed": 0,
+    "unverified": 0,
+    "first_failure": null,
+    "verdict": "consistent",
+    "llm_calls": 0,
+    "repairs": 0
+  },
+  "trace": [
+    {
+      "node": "segment",
+      "message": "6 steps and 2 assumptions (LaTeX rules)",
+      "step": null,
+      "seconds": 0.2952
+    },
+    {
+      "node": "formalize",
+      "message": "6/6 steps translated to SymPy",
+      "step": null,
+      "seconds": 0.1698
+    },
+    {
+      "node": "verify",
+      "message": "3 definition, 1 given, 2 verified",
+      "step": null,
+      "seconds": 0.1229
+    }
+  ]
+}
