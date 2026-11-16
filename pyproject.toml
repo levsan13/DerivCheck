@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "derivcheck"
+version = "0.1.0"
+description = "An LLM agent (LangGraph) that splits a physics derivation into steps, checks each step with SymPy and returns a JSON report."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Sergio Levy", email = "levy@fisica.ufc.br" }]
+keywords = ["physics", "derivations", "SymPy", "LLM", "agents", "LangGraph", "verification", "computer algebra"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "sympy>=1.12",
+    "antlr4-python3-runtime==4.11.*",
+    "langgraph>=0.3",
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+claude = ["anthropic>=0.40"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+derivcheck = "derivcheck.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/levsan13/derivcheck"
+Issues = "https://github.com/levsan13/derivcheck/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+derivcheck = ["data/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
